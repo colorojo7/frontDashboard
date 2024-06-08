@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "../Button";
 import { Link } from "react-router-dom";
-import Input from "../Input";
+import { Input } from "../Inputs";
 import { useAuth } from "../../auth/AuthProvider";
+import routes from "../../routers/routes";
 
 const LoginForm = () => {
   const { login } = useAuth();
@@ -18,12 +19,12 @@ const LoginForm = () => {
           <Input fullName="email" />
           <Input fullName="password" />
         </div>
-        <div className="flex justify-center">
-          <Button onClick={handleLoggin}>
-            <Link to="/dashboard" className="py-2 w-full h-full">
+        <div >
+          <Link to={routes.dashboard.home} className="flex justify-center">
+            <Button onClick={handleLoggin} textCenter={true} >
               Login
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </div>
       </form>
     </div>
